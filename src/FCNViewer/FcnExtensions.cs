@@ -13,7 +13,7 @@ namespace FCNViewer
         {
             routes.MapHttpRoute(
                 name: "FcnViewer",
-                routeTemplate: "fcn",
+                routeTemplate: basePath,
                 defaults: new { controller = "FcnViewer", id = RouteParameter.Optional }
             );
         }

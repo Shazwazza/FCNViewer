@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>FCNViewer</id>
+    <version>$version$</version>
+    <title>FCNViewer</title>
+    <authors>Shannon Deminick</authors>
+    <owners>Shannon Deminick</owners>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/Shazwazza/FCNViewer</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Displays the FCN (File Change Notification) properties of an ASP.NET website</description>
+    <copyright>$copyrightyear$</copyright>
+    <tags>FCN</tags>
+    <dependencies>
+      <dependency id="RazorEngine" version="3.9.3" />
+      <dependency id="Microsoft.AspNet.WebApi.Core" version="5.2.3" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\FCNViewer.dll" target="lib\net45\FCNViewer.dll" />
+    <file src="Readme.txt" target="Readme.txt" />
+  </files>
+</package>
