@@ -1,0 +1,79 @@
+﻿@model FCNViewer.Models.FcnModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FCN Viewer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container body-content">
+        <div>
+            <h3>FCN Mode</h3>
+            <ul>
+                <li>This is the detected FCN Mode: @Model.FcnMode</li>
+            </ul>
+            
+            <h3>FileChangesMonitor directory monitor hash table</h3>
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <td>Directory watched</td>
+                    <td>File monitor count</td>
+                </tr>
+                </thead>               
+                @foreach (var d in Model.DirectoriesMonitored)
+                {                    
+                    <tr>
+                        <td>@d.Key</td>
+                        <td>@d.Value</td>
+                    </tr>
+                }
+                <tfoot>
+                <tr>
+                    <td>@Model.DirectoriesMonitored.Count</td>
+                    <td>@Model.DirectoriesMonitored.Values.Sum()</td>
+                </tr>
+                </tfoot>
+            </table>
+            
+            <h3>FileChangesMonitor aliases hash table</h3>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Folder</th>
+                    </tr>
+                </thead>
+
+                @foreach (var d in Model.AliasesMonitored)
+                {
+                    <tr>
+                        <td>@d</td>
+                    </tr>
+                }
+                <tfoot>
+                    <tr>
+                        <th>@Model.AliasesMonitored.Count</th>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <h3>FCN Mode 'Single' directory monitor properties</h3>
+            <ul>
+                <li>FileChangesMonitor._dirMonAppPathInternal = @Model.DirectoryMonitorProperties[0].FileChangesMonitorType</li>
+                <li>@Model.DirectoryMonitorProperties[0].DirectoryMonitorName</li>
+                <li>_dirMonAppPathInternal._isDirMonAppPathInternal = @Model.DirectoryMonitorProperties[0].IsDirMonAppPathInternal</li>
+                <li>_dirMonAppPathInternal._dirMonCompletion = @Model.DirectoryMonitorProperties[0].DirectoryMonitorCompletion</li>
+            </ul>
+            <h3>Default sub directory monitor properties</h3>
+            <ul>
+                <li>FileChangesMonitor._dirMonSubdirs = @Model.DirectoryMonitorProperties[1].FileChangesMonitorType</li>
+                <li>@Model.DirectoryMonitorProperties[1].DirectoryMonitorName</li>
+                <li>_dirMonSubdirs._isDirMonAppPathInternal = @Model.DirectoryMonitorProperties[1].IsDirMonAppPathInternal</li>
+                <li>_dirMonSubdirs._dirMonCompletion = @Model.DirectoryMonitorProperties[1].DirectoryMonitorCompletion</li>
+            </ul>
+        </div>        
+    </div>
+</body>
+</html>
